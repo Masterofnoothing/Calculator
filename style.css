@@ -2,3 +2,58 @@ body {
     background-color: black;
     color: #fff;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.calculator {
+    background-color: black;
+    border: solid 1px #333;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.calculator form input {
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    padding: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #333333;
+    color: #fff;
+}
+
+.calculator .top_btn input {
+    background-color: #A6A6A6 ;
+    color: black;
+}
+
+.calculator .operation_btN {
+    background-color: #F28B0C;
+}
+.calculator .bigboii {
+    width: 135px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+form .display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+form .display input {
+    box-shadow: none;
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    background-color: transparent;
+}
+

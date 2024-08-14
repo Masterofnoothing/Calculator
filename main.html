@@ -5,23 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function buttonClick(value) {
+            const display = document.getElementById('display');
+            if (value === 'AC') {
+                display.value = ''; // Clear the display
+            } else if (value === 'DE') {
+                display.value = display.value.slice(0, -1); // Delete the last character
+            } else if (value === '=') {
+                try {
+                    display.value = eval(display.value); // Evaluate the expression
+                } catch (e) {
+                    display.value = 'Error'; // Show error for invalid expressions
+                }
+            } else {
+                display.value += value; // Append the button value to the display
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-
         <div class="calculator">
-            <div>
-                <input type="text" name="display">
-            </div>
-            <div class="top_btn">
-                <input type="button" value="AC">
-                <input type="button" value="AC">
-                <input type="button" value="AC">
-                <input type="button" value="AC" class="operation_btN">
-
-            </div>
+            <form>
+                <div class="display">
+                    <input type="text" id="display" name="display" readonly>
+                </div>
+                <div class="top_btn">
+                    <input type="button" value="AC" onclick="buttonClick(this.value)">
+                    <input type="button" value="DE" onclick="buttonClick(this.value)">
+                    <input type="button" value="%" onclick="buttonClick(this.value)">
+                    <input type="button" value="/" class="operation_btN" onclick="buttonClick(this.value)">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="buttonClick(this.value)">
+                    <input type="button" value="8" onclick="buttonClick(this.value)">
+                    <input type="button" value="9" onclick="buttonClick(this.value)">
+                    <input type="button" value="*" class="operation_btN" onclick="buttonClick(this.value)">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="buttonClick(this.value)">
+                    <input type="button" value="5" onclick="buttonClick(this.value)">
+                    <input type="button" value="6" onclick="buttonClick(this.value)">
+                    <input type="button" value="-" class="operation_btN" onclick="buttonClick(this.value)">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="buttonClick(this.value)">
+                    <input type="button" value="2" onclick="buttonClick(this.value)">
+                    <input type="button" value="3" onclick="buttonClick(this.value)">
+                    <input type="button" value="+" class="operation_btN" onclick="buttonClick(this.value)">
+                </div>
+                <div>
+                    <input type="button" value="0" class="bigboii" onclick="buttonClick(this.value)">
+                    <input type="button" value="." onclick="buttonClick(this.value)">
+                    <input type="button" value="=" class="operation_btN" onclick="buttonClick(this.value)">
+                </div>
+            </form>
         </div>
     </div>
-
 </body>
 </html>
