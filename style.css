@@ -1,7 +1,23 @@
 body {
     background-color: black;
     color: #fff;
+    font-family: "Inter", sans-serif;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
 .container {
     display: flex;
     justify-content: center;
@@ -57,3 +73,123 @@ form .display input {
     background-color: transparent;
 }
 
+.chat {
+    min-height: 100vh;
+    display: flex;
+    padding-top: 5px;
+}
+.chat img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+.sidebar{
+    width: 20%;
+    display:  flex;
+    flex-direction: column;
+    background-color: #333333b6;
+    border-radius: 5px;
+    padding: 10px;
+}
+.sidebar h2 {
+    padding-left: 15px;
+}
+
+.sidebar .person {
+    display: flex;
+    align-items: center;
+    background-color: #333333b6;
+    border-radius: 5px;
+}
+.chat_area {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2px;
+
+}
+.chat_area .top_bar {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 100;
+    width: 100%;
+    border-radius: 5px;
+    border: solid 1px #333;
+    
+}
+
+.send_message_container {
+
+    z-index: 1000; /* Ensure it stays above other content */
+    width: 100%;
+    border-radius: 5px;
+    margin: 2px;
+
+}
+
+.send_message {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+
+}
+
+.send_message_container input:focus {
+    outline: none;
+}
+
+.messages {
+    min-height: 90vh;
+    width: 80%;
+}
+
+
+.message-bubble {
+    background-color: #333;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    max-width: 70%;
+    position: relative;
+    display: inline-block;
+}
+
+.message-bubble::after {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-right-color: #333;
+    border-left: 0;
+    margin-left: -1px;
+}
+
+.sender {
+    text-align: left;
+}
+
+.receiver {
+    text-align: right;
+}
+
+.receiver .message-bubble {
+    background-color: #F28B0C;
+}
+
+.receiver .message-bubble::after {
+    left: auto;
+    right: -10px;
+    border-right-color: transparent;
+    border-left-color: #F28B0C;
+}
