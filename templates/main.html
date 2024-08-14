@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap" rel="stylesheet">
@@ -12,6 +12,8 @@
         function buttonClick(value) {
             const display = document.getElementById('display');
             const newMenu = document.getElementById('chat');
+            const btn_audio = document.getElementById('click_audio');
+            btn_audio.play();
             if (value === 'AC') {
                 display.value = ''; // Clear the display
             } else if (value === 'DE') {
@@ -69,17 +71,17 @@
             <h2>Chats</h2>
             <hr>
             <div class="person">
-                <img src="fp.png" alt="">
+                <img src="static/fp.png" alt="">
                 <h4>Masterofnoothing</h4>
             </div>
         </div>
         <div class="chat_area" id="chat_area">
             <div class="top_bar">
 
-                <img src="fp.png" alt="">
+                <img src="static/fp.png" alt="">
                 <h1>Masterofnoothing</h1>
             </div>
-            <div class="messages">
+            <div class="messages" id="messages">
                 <div class="sender">
                     <div class="message-bubble">
                         Hello! How are you?
@@ -107,10 +109,14 @@
                 </div>
             </div>
             <div class="send_message_container" id="send_message_container">
-                <input type="number" class="send_message" placeholder="Type your message..." >
+                <input type="number" class="send_message" id="send_message" placeholder="Type your message..." >
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <audio id="senderAudio" src="static/send.mp3"></audio>
+    <audio id="receiverAudio" src="static/recieve.mp3"></audio>
+    <audio id="click_audio" src="static/click.mp3"></audio>
+
+    <script src="static/main.js"></script>
 </body>
 </html>
