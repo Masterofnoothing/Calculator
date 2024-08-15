@@ -75,6 +75,7 @@ form .display input {
 
 .chat {
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     padding-top: 5px;
 }
@@ -92,6 +93,7 @@ form .display input {
     background-color: #333333b6;
     border-radius: 5px;
     padding: 10px;
+    max-height: 95vh;
 }
 .sidebar h2 {
     padding-left: 15px;
@@ -110,10 +112,11 @@ form .display input {
     align-items: center;
     padding-left: 2px;
 
+
 }
 .chat_area .top_bar {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     font-size: 10px;
     font-weight: 100;
     width: 100%;
@@ -121,7 +124,11 @@ form .display input {
     border: solid 1px #333;
     
 }
-
+.nameAndPfp {
+    display: flex;
+    align-items: center;
+    
+}
 .send_message_container {
 
     z-index: 1000; /* Ensure it stays above other content */
@@ -147,8 +154,21 @@ form .display input {
 }
 
 .messages {
-    min-height: 90vh;
+    min-height: 85vh;
+    max-height: 85vh;
     width: 80%;
+    overflow-y: scroll; 
+}
+
+/* Hide scrollbar for WebKit browsers */
+#messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+#messages {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none;  /* Hide scrollbar for Internet Explorer and Edge */
 }
 
 
@@ -193,3 +213,92 @@ form .display input {
     border-right-color: transparent;
     border-left-color: #F28B0C;
 }
+.typing {
+
+    margin: 10px;
+}
+.dot-elastic {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #F28B0C;
+    color: #F28B0C;
+    animation: dot-elastic 1s infinite linear;
+  }
+  .dot-elastic::before, .dot-elastic::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .dot-elastic::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #F28B0C;
+    color: #F28B0C;
+    animation: dot-elastic-before 1s infinite linear;
+  }
+  .dot-elastic::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #F28B0C;
+    color: #F28B0C;
+    animation: dot-elastic-after 1s infinite linear;
+  }
+  
+  @keyframes dot-elastic-before {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1.5);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes dot-elastic {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 1.5);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes dot-elastic-after {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
