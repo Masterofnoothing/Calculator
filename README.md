@@ -10,7 +10,7 @@ This is a hackathon project for the codewithlewis hackathon
 - `flask_cors`
 - `g4f`
 
-## Installation
+## Installation and setup
 
 1. **Clone the repository**:
 
@@ -18,6 +18,7 @@ This is a hackathon project for the codewithlewis hackathon
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
    pip install -r requirements.txt
+   python3 frontend.py
 
 
 
