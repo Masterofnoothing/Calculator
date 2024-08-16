@@ -9,23 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap" rel="stylesheet">
-    <script>
-        function buttonClick(value) {
-            const display = document.getElementById('display');
-            const newMenu = document.getElementById('chat');
-            const btn_audio = document.getElementById('click_audio');
-            btn_audio.play();
-            if (value === 'AC') {
-                display.value = ''; // Clear the display
-            } else if (value === 'DE') {
-                display.value = display.value.slice(0, -1); // Delete the last character
-            } else if (value === '=') {
-                newMenu.scrollIntoView({ behavior: 'smooth' }); // Scroll to the new menu
-            } else {
-                display.value += value; // Append the button value to the display
-            }
-        }
-    </script>
+
 </head>
 <body>
     <div class="container">
@@ -119,7 +103,7 @@
     </div>
     <audio id="senderAudio" src="static/send.mp3"></audio>
     <audio id="receiverAudio" src="static/recieve.mp3"></audio>
-    <audio id="click_audio" src="static/click.mp3"></audio>
+    <audio id="click_audio" src="static/btn.mp3"></audio>
 
     <script src="static/main.js"></script>
 </body>

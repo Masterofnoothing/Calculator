@@ -75,7 +75,7 @@ function delay(ms) {
 
 async function simulateApiCall(messageText) {
     const resp = await  askQuestion(messageText);
-    const delayTime = messageText.length * 200;
+    const delayTime = resp.length * 10;
     addTypingMessageToChat('sender')
 
     await delay(delayTime);
@@ -101,12 +101,12 @@ console.log("Assigned Username:", username);
 
 async function askQuestion(message) {
     const data = {
-        user: username,  // Use the randomly generated username
+        user_id: username,  // Use the randomly generated username
         message: message
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/question', {
+        const response = await fetch('http://127.0.0.1:5000/submit_answer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -126,4 +126,53 @@ async function askQuestion(message) {
     }
 }
 
+async function reqQuestion() {
+    const data = {
+        user_id: username,  // Use the randomly generated username
+    };
 
+    try {
+        const response = await fetch('http://127.0.0.1:5000/get_riddle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log("Response from API:", result.response);
+        return result.response;
+    } catch (error) {
+        console.error("Error occurred:", error.message);
+    }
+}
+
+async function buttonClick(value) {
+    const display = document.getElementById('display');
+    const newMenu = document.getElementById('chat');
+    const btn_audio = document.getElementById('click_audio');
+    btn_audio.play();
+    if (value === 'AC') {
+        display.value = ''; // Clear the display
+    } else if (value === 'DE') {
+        display.value = display.value.slice(0, -1); // Delete the last character
+    } else if (value === '=') {
+        newMenu.scrollIntoView({ behavior: 'smooth' }); // Scroll to the new menu
+        const resp = await  reqQuestion();
+        const delayTime = resp.length * 10;
+        display.value = eval(display.value)
+        addTypingMessageToChat('sender')
+    
+        await delay(delayTime);
+    
+        addMessageToChat('sender',resp)
+        
+    } else {
+        display.value += value; // Append the button value to the display
+    }
+}
