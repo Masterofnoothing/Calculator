@@ -1,5 +1,30 @@
+# Calculator
+
 This is a hackathon project for the codewithlewis hackathon
 
+
+## Requirements
+
+- Python 3.6 or higher
+- `flask`
+- `flask_cors`
+- `g4f`
+
+## Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   pip install -r requirements.txt
+
+
+
+
+
+
+## Thoughts while developing 
 I know the code is trash 
 and lot of stuff is straight up garbage 
 but in the end I am a noob in js sooo yeahhh 
