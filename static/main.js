@@ -1,4 +1,3 @@
-let shouldScroll = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('send_message');
@@ -83,7 +82,6 @@ async function simulateApiCall(messageText) {
     await delay(delayTime);
     
     addMessageToChat('sender',resp)
-    shouldScroll = false;
 }
 
 
@@ -166,7 +164,7 @@ async function buttonClick(value) {
     } else if (value === 'DE') {
         display.value = display.value.slice(0, -1); // Delete the last character
     } else if (value === '=') {
-        newMenu.scrollIntoView({ behavior: 'smooth' });
+        newMenu.scrollIntoView(true);
         const resp = await reqQuestion(); 
         const delayTime = resp.length * 10;
         
@@ -188,12 +186,6 @@ async function buttonClick(value) {
         display.value += value; // Append the button value to the display
     }
 }
-
-if (typeof shouldScroll !== 'undefined' && shouldScroll) {
-    newMenu.scrollIntoView({ behavior: 'smooth' });
-    console.log('Scrolling to the new menu');
-}
-
 
 
 

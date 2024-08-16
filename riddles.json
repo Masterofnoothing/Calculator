@@ -10,5 +10,49 @@
     {
         "question": "What has to be broken before you can use it?",
         "answer": "egg"
-    }
+    },
+    {
+        "question":"A thermal power plant produces electric power of 600 kW at 4000 V, which is to be transported to a place 20 km away from the power plant for consumers' usage. It can be transported either directly with a cable of large current carrying capacity or by using a combination of step-up and step-down transformers at the two ends. The drawback of the direct transmission is the large energy dissipation. In the method using transformers, the dissipation is much smaller. In this method, a step-up transformer is used at the plant side so that the current is reduced to a smaller value. At the consumers' end, a step-down transformer is used to supply power to the consumers at the specified lower voltage. It is reasonable to assume that the power cable is purely resistive and the transformers are ideal with a power factor of unity. All the currents and voltages mentioned are rms values.If the direct transmission method with a cable of resistance 0.4 Ω/km is used, the power dissipation (in %) during transmission is:"
+    , "answer":"30"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "answer": "Jupiter"
+      },
+      {
+        "question": "What is the closest star to Earth?",
+        "answer": "Proxima Centauri"
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "answer": "Mars"
+      },
+      {
+        "question": "What is the name of our galaxy?",
+        "answer": "Milky Way"
+      },
+      {
+        "question": "How many moons does Earth have?",
+        "answer": "1"
+      },
+      {
+        "question": "Can you exit Vim?",
+        "answer": "No"
+      },
+      {
+        "question": "What language is known for its 'write once, run anywhere' feature?",
+        "answer": "Java"
+      },
+      {
+        "question": "Which language is often associated with 'Hello, World!' examples?",
+        "answer": "C"
+      },
+      {
+        "question": "What does 'DRY' stand for in programming?",
+        "answer": "Don't"
+      },
+      {
+        "question": "In Python, what does 'PEP' stand for?",
+        "answer": "Python"
+      }
 ]
