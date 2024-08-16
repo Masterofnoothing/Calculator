@@ -1,3 +1,5 @@
+let shouldScroll = false; 
+
 document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('send_message');
     
@@ -77,10 +79,11 @@ async function simulateApiCall(messageText) {
     const resp = await  askQuestion(messageText);
     const delayTime = resp.length * 10;
     addTypingMessageToChat('sender')
-
+    
     await delay(delayTime);
-
+    
     addMessageToChat('sender',resp)
+    shouldScroll = false;
 }
 
 
@@ -154,25 +157,43 @@ async function reqQuestion() {
 
 async function buttonClick(value) {
     const display = document.getElementById('display');
-    const newMenu = document.getElementById('chat');
+    const newMenu = document.getElementById('chat_area');
     const btn_audio = document.getElementById('click_audio');
     btn_audio.play();
+    
     if (value === 'AC') {
         display.value = ''; // Clear the display
     } else if (value === 'DE') {
         display.value = display.value.slice(0, -1); // Delete the last character
     } else if (value === '=') {
-        newMenu.scrollIntoView({ behavior: 'smooth' }); // Scroll to the new menu
-        const resp = await  reqQuestion();
+        newMenu.scrollIntoView({ behavior: 'smooth' });
+        const resp = await reqQuestion(); 
         const delayTime = resp.length * 10;
-        display.value = eval(display.value)
-        addTypingMessageToChat('sender')
-    
-        await delay(delayTime);
-    
-        addMessageToChat('sender',resp)
         
+        try {
+            display.value = eval(display.value); // Evaluate the expression in the display
+        } catch (error) {
+            display.value = 'Error'; // Handle any errors in the evaluation
+            return;
+        }
+        
+        // Scroll to the new menu after evaluation
+        
+        addTypingMessageToChat('sender');
+        
+        await delay(delayTime);
+        
+        addMessageToChat('sender', resp);
     } else {
         display.value += value; // Append the button value to the display
     }
 }
+
+if (typeof shouldScroll !== 'undefined' && shouldScroll) {
+    newMenu.scrollIntoView({ behavior: 'smooth' });
+    console.log('Scrolling to the new menu');
+}
+
+
+
+
