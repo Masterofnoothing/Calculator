@@ -23,12 +23,14 @@ This is a hackathon project for the codewithlewis hackathon
 1. run the frontend.py file and visit http://localhost:5000
  
 ## faq 
-#Are there bugs?
+# Are there bugs?
 - yes there are a lot.
 
-#Why didnt I cleap up the code?
+# Why didnt I cleap up the code?
 - Cause I didnt have time to do that.
-#Do you think you can win with this garbage?
+
+
+# Do you think you can win with this garbage?
 - Does methane react with helium?
 
 ## Thoughts while developing 
