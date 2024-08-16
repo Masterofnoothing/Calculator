@@ -19,19 +19,22 @@ This is a hackathon project for the codewithlewis hackathon
    cd your-repo
    pip install -r requirements.txt
 
-##Usage 
+## Usage 
 1. run the frontend.py file and visit http://localhost:5000
  
+## faq 
+#Are there bugs?
+- yes there are a lot.
 
-
-
-
-
+#Why didnt I cleap up the code?
+- Cause I didnt have time to do that.
+#Do you think you can win with this garbage?
+- Does methane react with helium?
 
 ## Thoughts while developing 
 I know the code is trash 
 and lot of stuff is straight up garbage 
-but in the end I am a noob in js sooo yeahhh 
+but in the end I am a noob in js,html,css sooo yeahhh 
 
 I lost hope in this project but here I am trying to finish it in last min lol 
 
